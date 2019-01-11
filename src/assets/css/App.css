@@ -1,0 +1,16 @@
+.wrapper {
+  background-color: #242426;
+  border: 1px solid black;
+  border-radius: 2%;
+  width: 50%;
+  min-height: 500px;
+  margin: 0 auto;
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+h1 {
+  text-align: center;
+  color: #e54547;
+}
