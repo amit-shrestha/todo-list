@@ -1,0 +1,35 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: arial;
+}
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  clear: both;
+  display: table;
+}
+ul {
+  width: 100%;
+  list-style: none;
+  border: 1px solid black;
+}
+li {
+  width: 100%;
+  line-height: 50px;
+}
+.task-list {
+  width: 75%;
+  float: left;
+  margin-left: 2px;
+  /* color: #e6e6e6; */
+}
+.complete {
+  text-decoration: line-through;
+  /* color: #4e4e50; */
+}
+.menu {
+  width: 20%;
+  float: right;
+  margin-right: 2px;
+}

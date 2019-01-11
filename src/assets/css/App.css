@@ -1,8 +1,5 @@
 .wrapper {
-  background-color: #242426;
-  border: 1px solid black;
-  border-radius: 2%;
-  width: 50%;
+  width: 80%;
   min-height: 500px;
   margin: 0 auto;
 }

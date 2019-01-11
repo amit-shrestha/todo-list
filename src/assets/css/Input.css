@@ -9,3 +9,16 @@
   border: none;
   font-size: 20px;
 }
+.edit-form {
+  width: 70%;
+  border: 1px solid black;
+  display: inline-block;
+  line-height: 40px;
+  margin-left: 2px;
+}
+.edit-form input {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  line-height: 40px;
+}
