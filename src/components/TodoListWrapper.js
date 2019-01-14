@@ -3,20 +3,23 @@ import React from 'react';
 import Input from './Input';
 import TodoList from './TodoList';
 import Button from './Button';
+import Search from './Search';
 import '../assets/css/TodoListWrapper.css';
 
 const TodoListWrapper = props => {
   const {
     onClick,
     activeOption,
-    onAdd,
+    addTodo,
     edit,
     todoList,
-    completeTask,
+    completeTodo,
     option,
     deleteTodo,
     onEdit,
-    updateTodo
+    updateTodo,
+    onChange,
+    searchParameter
   } = props;
 
   return (
@@ -25,14 +28,16 @@ const TodoListWrapper = props => {
       <Button value="All" onClick={onClick} activeOption={activeOption} />
       <Button value="Remaining" onClick={onClick} activeOption={activeOption} />
       <Button value="Completed" onClick={onClick} activeOption={activeOption} />
-      <Input onAdd={onAdd} edit={edit} />
+      <Input onAdd={addTodo} edit={edit} />
+      <Search onChange={onChange} />
       <TodoList
         todoList={todoList}
-        completeTask={completeTask}
+        completeTask={completeTodo}
         option={option}
         deleteTodo={deleteTodo}
         onEdit={onEdit}
         updateTodo={updateTodo}
+        searchParameter={searchParameter}
       />
     </div>
   );

@@ -11,20 +11,27 @@ const TodoList = props => {
     completeTask,
     deleteTodo,
     onEdit,
-    updateTodo
+    updateTodo,
+    searchParameter
   } = props;
-  let list = null;
-  if (option === 'Remaining') {
-    list = todoList.filter(todo => !todo.isCompleted);
-  } else if (option === 'Completed') {
-    list = todoList.filter(todo => todo.isCompleted);
-  } else {
-    list = [...todoList];
-  }
+
+  const getList = () => {
+    if (option === 'Remaining') {
+      return todoList.filter(
+        todo => !todo.isCompleted && todo.todo.includes(searchParameter)
+      );
+    } else if (option === 'Completed') {
+      return todoList.filter(
+        todo => todo.isCompleted && todo.todo.includes(searchParameter)
+      );
+    } else {
+      return todoList.filter(todo => todo.todo.includes(searchParameter));
+    }
+  };
 
   return (
     <ul>
-      {list.map((item, index) => (
+      {getList().map((item, index) => (
         <li className="clearfix" key={index}>
           {item.isEditing ? (
             <Input

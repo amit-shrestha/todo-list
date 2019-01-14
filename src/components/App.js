@@ -9,6 +9,7 @@ class App extends React.Component {
     const ALL = 'All';
     this.state = {
       todos: [],
+      searchParameter: '',
       option: ALL
     };
   }
@@ -70,20 +71,26 @@ class App extends React.Component {
     return false;
   };
 
+  search = value => {
+    this.setState({ searchParameter: value });
+  };
+
   render() {
     return (
       <div className="wrapper">
         <TodoListWrapper
           onClick={this.changeOption}
           activeOption={this.state.option}
-          onAdd={this.addTodo}
+          addTodo={this.addTodo}
           edit={false}
           todoList={this.state.todos}
-          completeTask={this.completeTodo}
+          completeTodo={this.completeTodo}
           option={this.state.option}
           deleteTodo={this.deleteTodo}
           onEdit={this.enableEdit}
           updateTodo={this.updateTodo}
+          onChange={this.search}
+          searchParameter={this.state.searchParameter}
         />
       </div>
     );
