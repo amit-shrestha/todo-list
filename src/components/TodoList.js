@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../assets/css/TodoList.css';
 import Tool from './Tool';
 import Input from './Input';
 
@@ -49,8 +48,8 @@ const TodoList = props => {
             </div>
           )}
           <div className="menu">
-            <Tool value="Edit" onClick={onEdit} index={index} />
-            <Tool value="Delete" onClick={deleteTodo} index={index} />
+            <Tool value="Edit" onClick={() => onEdit(index)} />
+            <Tool value="Delete" onClick={() => deleteTodo(index)} />
           </div>
         </li>
       ))}

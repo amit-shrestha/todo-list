@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../assets/css/Search.css';
-
 const Search = props => {
   const { onChange } = props;
 

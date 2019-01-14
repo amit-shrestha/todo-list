@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../assets/css/Input.css';
-
 class Input extends React.Component {
   constructor() {
     super();

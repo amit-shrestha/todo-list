@@ -1,16 +1,16 @@
 import React from 'react';
 
-import '../assets/css/App.css';
+import '../assets/css';
 import TodoListWrapper from './TodoListWrapper';
+import * as Constants from './Constants';
 
 class App extends React.Component {
   constructor() {
     super();
-    const ALL = 'All';
     this.state = {
       todos: [],
       searchParameter: '',
-      option: ALL
+      option: Constants.ALL
     };
   }
 

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../assets/css/Button.css';
-
 const Button = props => {
   const { onClick, value, activeOption } = props;
 

@@ -4,7 +4,6 @@ import Input from './Input';
 import TodoList from './TodoList';
 import Button from './Button';
 import Search from './Search';
-import '../assets/css/TodoListWrapper.css';
 
 const TodoListWrapper = props => {
   const {

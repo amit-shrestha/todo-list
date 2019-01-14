@@ -1,11 +1,9 @@
 import React from 'react';
 
-import '../assets/css/Tool.css';
-
 const Tool = props => {
-  const { value, onClick, index } = props;
+  const { value, onClick } = props;
 
-  const handleClick = () => onClick(index);
+  const handleClick = () => onClick();
 
   return (
     <button className={value} onClick={handleClick}>
