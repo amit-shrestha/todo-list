@@ -1,0 +1,12 @@
+.container {
+  width: 95%;
+  margin: 15px auto;
+  min-height: 500px;
+}
+
+h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #e54547;
+}

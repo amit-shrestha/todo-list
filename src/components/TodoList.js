@@ -26,7 +26,7 @@ const TodoList = props => {
     <ul>
       {list.map((item, index) => (
         <li className="clearfix" key={index}>
-          {item.edit ? (
+          {item.isEditing ? (
             <Input
               onEdit={updateTodo}
               edit={true}
@@ -42,8 +42,8 @@ const TodoList = props => {
             </div>
           )}
           <div className="menu">
-            <Tool value="Edit" action={onEdit} index={index} />
-            <Tool value="Delete" action={deleteTodo} index={index} />
+            <Tool value="Edit" onClick={onEdit} index={index} />
+            <Tool value="Delete" onClick={deleteTodo} index={index} />
           </div>
         </li>
       ))}

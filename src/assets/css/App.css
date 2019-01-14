@@ -1,13 +1,7 @@
 .wrapper {
-  width: 80%;
+  width: 50%;
   min-height: 500px;
   margin: 0 auto;
-}
-.container {
-  width: 95%;
-  margin: 0 auto;
-}
-h1 {
-  text-align: center;
-  color: #e54547;
+  background-color: #242426;
+  border-radius: 2%;
 }

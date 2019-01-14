@@ -3,10 +3,12 @@ import React from 'react';
 import '../assets/css/Tool.css';
 
 const Tool = props => {
-  const { value, action, index } = props;
+  const { value, onClick, index } = props;
+
+  const handleClick = () => onClick(index);
 
   return (
-    <button className={value} onClick={() => action(index)}>
+    <button className={value} onClick={handleClick}>
       {value}
     </button>
   );

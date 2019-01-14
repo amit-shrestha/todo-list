@@ -3,12 +3,14 @@
   margin: 10px auto;
   border: 1px solid black;
 }
+
 .input-form input {
   width: 100%;
   line-height: 40px;
   border: none;
   font-size: 20px;
 }
+
 .edit-form {
   width: 70%;
   border: 1px solid black;
@@ -16,6 +18,7 @@
   line-height: 40px;
   margin-left: 2px;
 }
+
 .edit-form input {
   width: 100%;
   border: none;

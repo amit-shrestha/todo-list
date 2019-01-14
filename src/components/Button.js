@@ -3,10 +3,15 @@ import React from 'react';
 import '../assets/css/Button.css';
 
 const Button = props => {
-  const { onClick, value } = props;
+  const { onClick, value, activeOption } = props;
+
+  const handleClick = () => onClick(value);
 
   return (
-    <button className={value} onClick={() => onClick(value)}>
+    <button
+      className={activeOption === value ? 'active' : value}
+      onClick={handleClick}
+    >
       {value}
     </button>
   );

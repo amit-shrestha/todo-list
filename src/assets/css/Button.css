@@ -7,3 +7,12 @@
   background-color: #e6e6e6;
   font-size: 20px;
 }
+.active {
+  width: 33.333333%;
+  line-height: 40px;
+  border-radius: 2%;
+  background-color: #e6e6e6;
+  font-size: 20px;
+  background-color: gray;
+  color: white;
+}

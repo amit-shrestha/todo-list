@@ -1,31 +1,30 @@
 import React from 'react';
 
 import '../assets/css/App.css';
-import Input from './Input';
-import TodoList from './TodoList';
-import Button from './Button';
+import TodoListWrapper from './TodoListWrapper';
 
 class App extends React.Component {
   constructor() {
     super();
+    const ALL = 'All';
     this.state = {
       todos: [],
-      option: 'All'
+      option: ALL
     };
   }
 
-  addTask = task => {
-    if (task) {
+  addTodo = task => {
+    if (this.isTaskValid(task)) {
       this.setState({
         todos: [
-          { todo: task, isCompleted: false, edit: false },
+          { todo: task, isCompleted: false, isEditing: false },
           ...this.state.todos
         ]
       });
     }
   };
 
-  completeTask = index => {
+  completeTodo = index => {
     let tasks = this.state.todos.map(item => {
       return { ...item };
     });
@@ -39,16 +38,16 @@ class App extends React.Component {
 
   deleteTodo = index => {
     let tasksToDelete = this.state.todos.filter(
-      item => this.state.todos.indexOf(item) !== index
+      (item, itemIndex) => itemIndex !== index
     );
     this.setState({ todos: tasksToDelete });
   };
 
-  editTodo = index => {
+  enableEdit = index => {
     let tasks = this.state.todos.map(item => {
       return { ...item };
     });
-    tasks[index].edit = !this.state.todos[index].edit;
+    tasks[index].isEditing = !this.state.todos[index].isEditing;
     this.setState({ todos: tasks });
   };
 
@@ -56,29 +55,36 @@ class App extends React.Component {
     let tasks = this.state.todos.map(item => {
       return { ...item };
     });
-    tasks[index].edit = !this.state.todos[index].edit;
-    tasks[index].todo = task;
+    tasks[index].isEditing = !this.state.todos[index].isEditing;
+    if (this.isTaskValid(task)) {
+      tasks[index].todo = task;
+    }
     this.setState({ todos: tasks });
+  };
+
+  isTaskValid = task => {
+    if (task && task !== null && [...task].some(letter => letter !== ' ')) {
+      return true;
+    }
+
+    return false;
   };
 
   render() {
     return (
       <div className="wrapper">
-        <div className="container">
-          <h1>TO-DO LIST</h1>
-          <Button value="All" onClick={this.changeOption} />
-          <Button value="Remaining" onClick={this.changeOption} />
-          <Button value="Completed" onClick={this.changeOption} />
-          <Input onAdd={this.addTask} edit={false} />
-          <TodoList
-            todoList={this.state.todos}
-            completeTask={this.completeTask}
-            option={this.state.option}
-            deleteTodo={this.deleteTodo}
-            onEdit={this.editTodo}
-            updateTodo={this.updateTodo}
-          />
-        </div>
+        <TodoListWrapper
+          onClick={this.changeOption}
+          activeOption={this.state.option}
+          onAdd={this.addTodo}
+          edit={false}
+          todoList={this.state.todos}
+          completeTask={this.completeTodo}
+          option={this.state.option}
+          deleteTodo={this.deleteTodo}
+          onEdit={this.enableEdit}
+          updateTodo={this.updateTodo}
+        />
       </div>
     );
   }

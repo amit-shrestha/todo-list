@@ -6,22 +6,27 @@ class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      initialValue: '',
+      value: '',
       temp: ''
     };
   }
 
+  handleChange = event => {
+    this.props.edit
+      ? this.setState({ value: event.target.value })
+      : this.setState({ temp: event.target.value });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
-    document.getElementsByClassName('input-form')[0].reset();
     this.props.edit
-      ? this.props.onEdit(this.props.index, this.state.initialValue)
+      ? this.props.onEdit(this.props.index, this.state.value)
       : this.props.onAdd(this.state.temp);
-    this.setState({ temp: '', initialValue: '' });
+    this.setState({ temp: '', value: '' });
   };
 
   componentDidMount() {
-    this.setState({ initialValue: this.props.value });
+    this.setState({ value: this.props.value });
   }
 
   render() {
@@ -30,10 +35,8 @@ class Input extends React.Component {
         <input
           type="text"
           placeholder=""
-          value={this.state.initialValue}
-          onChange={event =>
-            this.setState({ initialValue: event.target.value })
-          }
+          value={this.state.value}
+          onChange={event => this.handleChange(event)}
         />
       </form>
     ) : (
@@ -41,7 +44,8 @@ class Input extends React.Component {
         <input
           type="text"
           placeholder="Add new task"
-          onChange={event => this.setState({ temp: event.target.value })}
+          value={this.state.temp}
+          onChange={event => this.handleChange(event)}
         />
       </form>
     );

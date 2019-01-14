@@ -4,3 +4,11 @@
   font-size: 15px;
   line-height: 30px;
 }
+
+.Delete {
+  background-color: #e54547;
+}
+
+.Edit {
+  background-color: #2828e6;
+}
