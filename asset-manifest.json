@@ -1,0 +1,13 @@
+{
+  "main.css": "/react-todo/static/css/main.d10c9694.chunk.css",
+  "main.js": "/react-todo/static/js/main.8477fbe6.chunk.js",
+  "main.js.map": "/react-todo/static/js/main.8477fbe6.chunk.js.map",
+  "static/js/1.3ca8e67e.chunk.js": "/react-todo/static/js/1.3ca8e67e.chunk.js",
+  "static/js/1.3ca8e67e.chunk.js.map": "/react-todo/static/js/1.3ca8e67e.chunk.js.map",
+  "runtime~main.js": "/react-todo/static/js/runtime~main.5bee33ad.js",
+  "runtime~main.js.map": "/react-todo/static/js/runtime~main.5bee33ad.js.map",
+  "static/css/main.d10c9694.chunk.css.map": "/react-todo/static/css/main.d10c9694.chunk.css.map",
+  "index.html": "/react-todo/index.html",
+  "precache-manifest.f8f7df5eca80a8c37dd4cf8e2bf89ff9.js": "/react-todo/precache-manifest.f8f7df5eca80a8c37dd4cf8e2bf89ff9.js",
+  "service-worker.js": "/react-todo/service-worker.js"
+}
