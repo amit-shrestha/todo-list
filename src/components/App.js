@@ -127,6 +127,27 @@ class App extends React.Component {
   /**
    *
    *
+   * @memberof App
+   */
+  componentDidMount() {
+    const storedTodos = window.localStorage.getItem('storeTodos');
+    const storedTodosArray = storedTodos ? JSON.parse(storedTodos) : [];
+
+    this.setState({ todos: storedTodosArray });
+  }
+
+  /**
+   *
+   *
+   * @memberof App
+   */
+  componentDidUpdate() {
+    window.localStorage.setItem('storeTodos', JSON.stringify(this.state.todos));
+  }
+
+  /**
+   *
+   *
    * @returns
    * @memberof App
    */

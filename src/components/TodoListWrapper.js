@@ -49,7 +49,7 @@ const TodoListWrapper = props => {
 
 TodoListWrapper.propTypes = {
   onClick: Proptypes.func,
-  activeOption: Proptypes.bool,
+  activeOption: Proptypes.string,
   addTodo: Proptypes.func,
   edit: Proptypes.bool,
   todoList: Proptypes.array,

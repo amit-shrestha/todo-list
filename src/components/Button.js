@@ -25,7 +25,7 @@ const Button = props => {
 Button.propTypes = {
   onClick: Proptypes.func,
   value: Proptypes.string,
-  activeOption: Proptypes.bool
+  activeOption: Proptypes.string
 };
 
 export default Button;
