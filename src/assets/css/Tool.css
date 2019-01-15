@@ -3,12 +3,21 @@
   width: 50%;
   font-size: 15px;
   line-height: 30px;
+  border-radius: 5px;
 }
 
 .Delete {
-  background-color: #e54547;
+  background-color: #ef5350;
+}
+
+.Delete:hover {
+  background-color: #d50000;
 }
 
 .Edit {
-  background-color: #2828e6;
+  background-color: #b0bec5;
+}
+
+.Edit:hover {
+  background-color: #78909c;
 }

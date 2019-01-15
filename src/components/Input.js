@@ -1,6 +1,17 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
+/**
+ *
+ *
+ * @class Input
+ * @extends {React.Component}
+ */
 class Input extends React.Component {
+  /**
+   *
+   * @memberof Input
+   */
   constructor() {
     super();
     this.state = {
@@ -9,12 +20,24 @@ class Input extends React.Component {
     };
   }
 
+  /**
+   *
+   *
+   * @memberof Input
+   * @param {*} event
+   */
   handleChange = event => {
     this.props.edit
       ? this.setState({ value: event.target.value })
       : this.setState({ temp: event.target.value });
   };
 
+  /**
+   *
+   *
+   * @memberof Input
+   * @param {*} event
+   */
   handleSubmit = event => {
     event.preventDefault();
     this.props.edit
@@ -23,10 +46,20 @@ class Input extends React.Component {
     this.setState({ temp: '', value: '' });
   };
 
+  /**
+   *
+   *
+   * @memberof Input
+   */
   componentDidMount() {
     this.setState({ value: this.props.value });
   }
-
+  /**
+   *
+   *
+   * @returns
+   * @memberof Input
+   */
   render() {
     return this.props.edit ? (
       <form onSubmit={event => this.handleSubmit(event)} className="edit-form">
@@ -49,5 +82,13 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.propTypes = {
+  edit: Proptypes.bool,
+  onEdit: Proptypes.func,
+  index: Proptypes.number,
+  value: Proptypes.string,
+  onAdd: Proptypes.func
+};
 
 export default Input;

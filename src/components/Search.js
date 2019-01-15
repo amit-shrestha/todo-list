@@ -1,12 +1,25 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
+/**
+ *
+ * @param {*} props
+ */
 const Search = props => {
   const { onChange } = props;
 
+  /**
+   *
+   * @param {*} event
+   */
   const handleSubmit = event => {
     event.preventDefault();
   };
 
+  /**
+   *
+   * @param {*} event
+   */
   const handleChange = event => {
     onChange(event.target.value);
   };
@@ -21,4 +34,9 @@ const Search = props => {
     </form>
   );
 };
+
+Search.propTypes = {
+  onChange: Proptypes.func
+};
+
 export default Search;

@@ -1,10 +1,15 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 import Input from './Input';
 import TodoList from './TodoList';
 import Button from './Button';
 import Search from './Search';
 
+/**
+ *
+ * @param {*} props
+ */
 const TodoListWrapper = props => {
   const {
     onClick,
@@ -40,6 +45,21 @@ const TodoListWrapper = props => {
       />
     </div>
   );
+};
+
+TodoListWrapper.propTypes = {
+  onClick: Proptypes.func,
+  activeOption: Proptypes.bool,
+  addTodo: Proptypes.func,
+  edit: Proptypes.bool,
+  todoList: Proptypes.array,
+  completeTodo: Proptypes.func,
+  option: Proptypes.string,
+  deleteTodo: Proptypes.func,
+  onEdit: Proptypes.func,
+  updateTodo: Proptypes.func,
+  onChange: Proptypes.func,
+  searchParameter: Proptypes.string
 };
 
 export default TodoListWrapper;

@@ -2,26 +2,29 @@
   width: 100%;
   margin: 10px auto;
   border: 1px solid black;
+  border-radius: 5px;
 }
 
 .input-form input {
-  width: 100%;
+  width: 99%;
   line-height: 40px;
   border: none;
   font-size: 20px;
+  border-radius: 5px;
+  padding-left: 10px;
 }
 
 .edit-form {
-  width: 70%;
-  border: 1px solid black;
+  width: 78%;
   display: inline-block;
-  line-height: 40px;
-  margin-left: 2px;
+  border-radius: 5px;
 }
 
 .edit-form input {
   width: 100%;
   border: none;
   font-size: 20px;
-  line-height: 40px;
+  line-height: 50px;
+  border-radius: 5px;
+  padding-left: 10px;
 }

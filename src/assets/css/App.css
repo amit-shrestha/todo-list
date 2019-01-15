@@ -1,7 +1,17 @@
 .wrapper {
-  width: 50%;
+  width: 80%;
+  min-width: 400px;
   min-height: 500px;
   margin: 0 auto;
-  background-color: #242426;
-  border-radius: 2%;
+  background-color: #616161;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
 }

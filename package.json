@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-config-leapfrog": "^2.0.0-beta.0",
     "eslint-config-prettier": "^3.3.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -15,7 +16,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint-config-leapfrog/react"
+    ]
   },
   "browserslist": [
     ">0.2%",

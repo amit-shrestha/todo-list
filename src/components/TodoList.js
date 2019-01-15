@@ -1,8 +1,13 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 import Tool from './Tool';
 import Input from './Input';
 
+/**
+ *
+ * @param {*} props
+ */
 const TodoList = props => {
   const {
     todoList,
@@ -14,6 +19,9 @@ const TodoList = props => {
     searchParameter
   } = props;
 
+  /**
+   *
+   */
   const getList = () => {
     if (option === 'Remaining') {
       return todoList.filter(
@@ -28,7 +36,7 @@ const TodoList = props => {
     }
   };
 
-  return (
+  return getList().length !== 0 ? (
     <ul>
       {getList().map((item, index) => (
         <li className="clearfix" key={index}>
@@ -54,7 +62,19 @@ const TodoList = props => {
         </li>
       ))}
     </ul>
+  ) : (
+    <div className="no-results">No Results Found</div>
   );
+};
+
+TodoList.propTypes = {
+  todoList: Proptypes.array,
+  option: Proptypes.string,
+  completeTask: Proptypes.func,
+  deleteTodo: Proptypes.func,
+  onEdit: Proptypes.func,
+  updateTodo: Proptypes.func,
+  searchParameter: Proptypes.string
 };
 
 export default TodoList;

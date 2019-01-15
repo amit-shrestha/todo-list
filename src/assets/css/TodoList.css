@@ -21,23 +21,33 @@ li {
   line-height: 50px;
   font-size: 25px;
   cursor: pointer;
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .task-list {
   width: 75%;
   float: left;
   margin-left: 2px;
-  color: #e6e6e6;
+  color: #4e4e50;
   word-wrap: break-word;
 }
 
 .complete {
   text-decoration: line-through;
-  color: #4e4e50;
+  color: #bdbdbd;
 }
 
 .menu {
   width: 20%;
   float: right;
   margin-right: 2px;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 30px;
+  color: gray;
+  margin-top: 80px;
 }
