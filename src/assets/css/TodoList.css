@@ -43,6 +43,7 @@ li {
   width: 20%;
   float: right;
   margin-right: 2px;
+  line-height: 40px;
 }
 
 .no-results {
@@ -50,4 +51,13 @@ li {
   font-size: 30px;
   color: gray;
   margin-top: 80px;
+}
+
+@media screen and (max-width: 480px) {
+  .task-list {
+    width: 65%;
+  }
+  .menu {
+    width: 30%;
+  }
 }

@@ -78,6 +78,7 @@ class Input extends React.Component {
           value={this.state.newTodo}
           onChange={event => this.handleChange(event)}
         />
+        <button>Add</button>
       </form>
     );
   }

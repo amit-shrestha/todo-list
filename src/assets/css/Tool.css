@@ -2,8 +2,8 @@
 .Delete {
   width: 50%;
   font-size: 15px;
-  line-height: 30px;
   border-radius: 5px;
+  line-height: 40px;
 }
 
 .Delete {
@@ -12,6 +12,7 @@
 
 .Delete:hover {
   background-color: #d50000;
+  color: white;
 }
 
 .Edit {
@@ -20,4 +21,19 @@
 
 .Edit:hover {
   background-color: #78909c;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .Edit,
+  .Delete {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Edit,
+  .Delete {
+    font-size: 10px;
+  }
 }

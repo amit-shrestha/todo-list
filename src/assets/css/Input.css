@@ -1,23 +1,37 @@
 .input-form {
   width: 100%;
   margin: 10px auto;
-  border: 1px solid black;
+  background-color: white;
   border-radius: 5px;
 }
 
 .input-form input {
-  width: 99%;
+  width: 85%;
   line-height: 40px;
   border: none;
   font-size: 20px;
   border-radius: 5px;
-  padding-left: 10px;
+  padding-left: 2px;
+}
+
+.input-form button {
+  float: right;
+  font-size: 15px;
+  line-height: 40px;
+  width: 10%;
+  border: none;
+  border-radius: 5px;
+  background-color: #cfd8dc;
+}
+
+.input-form button:hover {
+  background-color: #b0bec5;
+  color: white;
 }
 
 .edit-form {
-  width: 78%;
+  width: 75%;
   display: inline-block;
-  border-radius: 5px;
 }
 
 .edit-form input {
@@ -27,4 +41,22 @@
   line-height: 50px;
   border-radius: 5px;
   padding-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .input-form button {
+    width: 50px;
+  }
+
+  .input-form input {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .edit-form {
+    width: 65%;
+  }
+  .menu {
+    width: 30%;
+  }
 }

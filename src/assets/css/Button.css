@@ -16,3 +16,12 @@
   background-color: gray;
   color: white;
 }
+
+@media screen and (max-width: 480px) {
+  .All,
+  .Remaining,
+  .Completed,
+  .active {
+    font-size: 15px;
+  }
+}
