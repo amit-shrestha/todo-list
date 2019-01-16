@@ -15,8 +15,8 @@ class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      value: '',
-      temp: ''
+      editTodo: '',
+      newTodo: ''
     };
   }
 
@@ -28,8 +28,8 @@ class Input extends React.Component {
    */
   handleChange = event => {
     this.props.edit
-      ? this.setState({ value: event.target.value })
-      : this.setState({ temp: event.target.value });
+      ? this.setState({ editTodo: event.target.value })
+      : this.setState({ newTodo: event.target.value });
   };
 
   /**
@@ -42,8 +42,8 @@ class Input extends React.Component {
     event.preventDefault();
     this.props.edit
       ? this.props.onEdit(this.props.index, this.state.value)
-      : this.props.onAdd(this.state.temp);
-    this.setState({ temp: '', value: '' });
+      : this.props.onAdd(this.state.newTodo);
+    this.setState({ newTodo: '', editTodo: '' });
   };
 
   /**
@@ -52,7 +52,7 @@ class Input extends React.Component {
    * @memberof Input
    */
   componentDidMount() {
-    this.setState({ value: this.props.value });
+    this.setState({ editTodo: this.props.value });
   }
   /**
    *
@@ -66,7 +66,7 @@ class Input extends React.Component {
         <input
           type="text"
           placeholder=""
-          value={this.state.value}
+          value={this.state.editTodo}
           onChange={event => this.handleChange(event)}
         />
       </form>
@@ -75,7 +75,7 @@ class Input extends React.Component {
         <input
           type="text"
           placeholder="Add new task"
-          value={this.state.temp}
+          value={this.state.newTodo}
           onChange={event => this.handleChange(event)}
         />
       </form>

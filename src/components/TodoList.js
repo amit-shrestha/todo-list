@@ -12,7 +12,7 @@ const TodoList = props => {
   const {
     todoList,
     option,
-    completeTask,
+    completeTodo,
     deleteTodo,
     onEdit,
     updateTodo,
@@ -50,7 +50,7 @@ const TodoList = props => {
           ) : (
             <div
               className={item.isCompleted ? 'task-list complete' : 'task-list'}
-              onClick={() => completeTask(index)}
+              onClick={() => completeTodo(index)}
             >
               {item.todo}
             </div>
@@ -70,7 +70,7 @@ const TodoList = props => {
 TodoList.propTypes = {
   todoList: Proptypes.array,
   option: Proptypes.string,
-  completeTask: Proptypes.func,
+  completeTodo: Proptypes.func,
   deleteTodo: Proptypes.func,
   onEdit: Proptypes.func,
   updateTodo: Proptypes.func,

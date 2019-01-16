@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../assets/css';
 import TodoListWrapper from './TodoListWrapper';
-import * as Constants from './Constants';
+import * as Filter from '../Constants/Filter';
 /**
  *
  *
@@ -19,7 +19,7 @@ class App extends React.Component {
     this.state = {
       todos: [],
       searchParameter: '',
-      option: Constants.ALL
+      option: Filter.ALL
     };
   }
 
@@ -155,7 +155,7 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <TodoListWrapper
-          onClick={this.changeOption}
+          onButtonClick={this.changeOption}
           activeOption={this.state.option}
           addTodo={this.addTodo}
           edit={false}

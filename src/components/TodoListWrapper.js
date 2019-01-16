@@ -12,7 +12,7 @@ import Search from './Search';
  */
 const TodoListWrapper = props => {
   const {
-    onClick,
+    onButtonClick,
     activeOption,
     addTodo,
     edit,
@@ -29,14 +29,26 @@ const TodoListWrapper = props => {
   return (
     <div className="container">
       <h1>TO-DO LIST</h1>
-      <Button value="All" onClick={onClick} activeOption={activeOption} />
-      <Button value="Remaining" onClick={onClick} activeOption={activeOption} />
-      <Button value="Completed" onClick={onClick} activeOption={activeOption} />
+      <Button
+        value="All"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
+      <Button
+        value="Remaining"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
+      <Button
+        value="Completed"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
       <Input onAdd={addTodo} edit={edit} />
       <Search onChange={onChange} />
       <TodoList
         todoList={todoList}
-        completeTask={completeTodo}
+        completeTodo={completeTodo}
         option={option}
         deleteTodo={deleteTodo}
         onEdit={onEdit}
@@ -48,7 +60,7 @@ const TodoListWrapper = props => {
 };
 
 TodoListWrapper.propTypes = {
-  onClick: Proptypes.func,
+  onButtonClick: Proptypes.func,
   activeOption: Proptypes.string,
   addTodo: Proptypes.func,
   edit: Proptypes.bool,

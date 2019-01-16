@@ -1,16 +1,17 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+
 /**
  *
  * @param {*} props
  */
 const Button = props => {
-  const { onClick, value, activeOption } = props;
+  const { onButtonClick, value, activeOption } = props;
 
   /**
    *
    */
-  const handleClick = () => onClick(value);
+  const handleClick = () => onButtonClick(value);
 
   return (
     <button
@@ -23,7 +24,7 @@ const Button = props => {
 };
 
 Button.propTypes = {
-  onClick: Proptypes.func,
+  onButtonClick: Proptypes.func,
   value: Proptypes.string,
   activeOption: Proptypes.string
 };
