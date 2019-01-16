@@ -1,3 +1,5 @@
+import './reset.css';
+
 import './App.css';
 import './Button.css';
 import './Input.css';

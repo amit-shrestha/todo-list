@@ -1,16 +1,3 @@
-* {
-  padding: 0px;
-  margin: 0px;
-  font-family: arial;
-}
-
-.clearfix::after,
-.clearfix::before {
-  content: '';
-  clear: both;
-  display: table;
-}
-
 ul {
   width: 100%;
   list-style: none;
