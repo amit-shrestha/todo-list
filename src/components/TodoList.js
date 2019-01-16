@@ -48,17 +48,21 @@ const TodoList = props => {
               value={item.todo}
             />
           ) : (
-            <div
-              className={item.isCompleted ? 'task-list complete' : 'task-list'}
-              onClick={() => completeTodo(index)}
-            >
-              {item.todo}
+            <div>
+              <div
+                className={
+                  item.isCompleted ? 'task-list complete' : 'task-list'
+                }
+                onClick={() => completeTodo(index)}
+              >
+                {item.todo}
+              </div>
+              <div className="menu">
+                <Tool value="Edit" onClick={() => onEdit(index)} />
+                <Tool value="Delete" onClick={() => deleteTodo(index)} />
+              </div>
             </div>
           )}
-          <div className="menu">
-            <Tool value="Edit" onClick={() => onEdit(index)} />
-            <Tool value="Delete" onClick={() => deleteTodo(index)} />
-          </div>
         </li>
       ))}
     </ul>

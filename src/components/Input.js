@@ -41,7 +41,7 @@ class Input extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.edit
-      ? this.props.onEdit(this.props.index, this.state.value)
+      ? this.props.onEdit(this.props.index, this.state.editTodo)
       : this.props.onAdd(this.state.newTodo);
     this.setState({ newTodo: '', editTodo: '' });
   };
@@ -69,6 +69,7 @@ class Input extends React.Component {
           value={this.state.editTodo}
           onChange={event => this.handleChange(event)}
         />
+        <button>Save</button>
       </form>
     ) : (
       <form onSubmit={event => this.handleSubmit(event)} className="input-form">

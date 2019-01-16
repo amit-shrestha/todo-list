@@ -16,6 +16,9 @@ button:focus {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    background-color: #616161;
+  }
   .wrapper {
     width: 100%;
     border-radius: 0;

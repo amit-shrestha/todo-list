@@ -14,7 +14,8 @@
   padding-left: 2px;
 }
 
-.input-form button {
+.input-form button,
+.edit-form button {
   float: right;
   font-size: 15px;
   line-height: 40px;
@@ -30,33 +31,38 @@
 }
 
 .edit-form {
-  width: 75%;
-  display: inline-block;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .edit-form input {
-  width: 100%;
+  width: 85%;
   border: none;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 40px;
   border-radius: 5px;
   padding-left: 10px;
 }
 
+.edit-form button {
+  line-height: 50px;
+  width: 10%;
+}
+
+.edit-form button:hover {
+  background-color: #b0bec5;
+  color: white;
+}
+
 @media screen and (max-width: 768px) {
-  .input-form button {
+  .input-form button,
+  .edit-form button {
     width: 50px;
   }
 
-  .input-form input {
+  .input-form input,
+  .edit-form input {
     width: 75%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .edit-form {
-    width: 65%;
-  }
-  .menu {
-    width: 30%;
   }
 }
