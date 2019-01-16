@@ -47,12 +47,18 @@ class App extends React.Component {
    * @param {number} index
    */
   completeTodo = index => {
-    const tasks = this.state.todos.map(item => {
-      return { ...item };
+    const todos = this.state.todos.map((currentTodo, itemIndex) => {
+      if (itemIndex !== index) {
+        return currentTodo;
+      }
+
+      return {
+        ...currentTodo,
+        isCompleted: !currentTodo.isCompleted
+      };
     });
 
-    tasks[index].isCompleted = !this.state.todos[index].isCompleted;
-    this.setState({ todos: tasks });
+    this.setState({ todos });
   };
 
   /**
@@ -80,12 +86,18 @@ class App extends React.Component {
    * @param {number} index
    */
   enableEdit = index => {
-    const tasks = this.state.todos.map(item => {
-      return { ...item };
+    const todos = this.state.todos.map((currentTodo, itemIndex) => {
+      if (itemIndex !== index) {
+        return currentTodo;
+      }
+
+      return {
+        ...currentTodo,
+        isEditing: !currentTodo.isEditing
+      };
     });
 
-    tasks[index].isEditing = !this.state.todos[index].isEditing;
-    this.setState({ todos: tasks });
+    this.setState({ todos });
   };
   /**
    * @memberof Input
@@ -93,15 +105,21 @@ class App extends React.Component {
    * @param {string} task
    */
   updateTodo = (index, task) => {
-    const tasks = this.state.todos.map(item => {
-      return { ...item };
-    });
-
-    tasks[index].isEditing = !this.state.todos[index].isEditing;
     if (this.isTaskValid(task)) {
-      tasks[index].todo = task;
+      const todos = this.state.todos.map((currentTodo, itemIndex) => {
+        if (itemIndex !== index) {
+          return currentTodo;
+        }
+
+        return {
+          ...currentTodo,
+          isEditing: !currentTodo.isEditing,
+          todo: task
+        };
+      });
+
+      this.setState({ todos });
     }
-    this.setState({ todos: tasks });
   };
 
   /**
