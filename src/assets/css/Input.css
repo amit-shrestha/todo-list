@@ -21,7 +21,7 @@
   line-height: 40px;
   width: 10%;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0s;
   background-color: #cfd8dc;
 }
 
