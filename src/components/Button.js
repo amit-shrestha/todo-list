@@ -1,11 +1,17 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
-import '../assets/css/Button.css';
-
+/**
+ *
+ * @param {*} props
+ */
 const Button = props => {
-  const { onClick, value, activeOption } = props;
+  const { onButtonClick, value, activeOption } = props;
 
-  const handleClick = () => onClick(value);
+  /**
+   *
+   */
+  const handleClick = () => onButtonClick(value);
 
   return (
     <button
@@ -15,6 +21,12 @@ const Button = props => {
       {value}
     </button>
   );
+};
+
+Button.propTypes = {
+  onButtonClick: Proptypes.func,
+  value: Proptypes.string,
+  activeOption: Proptypes.string
 };
 
 export default Button;

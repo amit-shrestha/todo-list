@@ -1,17 +1,27 @@
 import React from 'react';
-
-import '../assets/css/Tool.css';
-
+import Proptypes from 'prop-types';
+/**
+ *
+ * @param {*} props
+ */
 const Tool = props => {
-  const { value, onClick, index } = props;
+  const { value, onClick } = props;
 
-  const handleClick = () => onClick(index);
+  /**
+   *
+   */
+  const handleClick = () => onClick();
 
   return (
     <button className={value} onClick={handleClick}>
       {value}
     </button>
   );
+};
+
+Tool.propTypes = {
+  value: Proptypes.string,
+  onClick: Proptypes.func
 };
 
 export default Tool;

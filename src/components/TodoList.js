@@ -1,30 +1,44 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
-import '../assets/css/TodoList.css';
 import Tool from './Tool';
 import Input from './Input';
 
+/**
+ *
+ * @param {*} props
+ */
 const TodoList = props => {
   const {
     todoList,
     option,
-    completeTask,
+    completeTodo,
     deleteTodo,
     onEdit,
-    updateTodo
+    updateTodo,
+    searchParameter
   } = props;
-  let list = null;
-  if (option === 'Remaining') {
-    list = todoList.filter(todo => !todo.isCompleted);
-  } else if (option === 'Completed') {
-    list = todoList.filter(todo => todo.isCompleted);
-  } else {
-    list = [...todoList];
-  }
 
-  return (
+  /**
+   *
+   */
+  const getList = () => {
+    if (option === 'Remaining') {
+      return todoList.filter(
+        todo => !todo.isCompleted && todo.todo.includes(searchParameter)
+      );
+    } else if (option === 'Completed') {
+      return todoList.filter(
+        todo => todo.isCompleted && todo.todo.includes(searchParameter)
+      );
+    } else {
+      return todoList.filter(todo => todo.todo.includes(searchParameter));
+    }
+  };
+
+  return getList().length !== 0 ? (
     <ul>
-      {list.map((item, index) => (
+      {getList().map((item, index) => (
         <li className="clearfix" key={index}>
           {item.isEditing ? (
             <Input
@@ -34,21 +48,37 @@ const TodoList = props => {
               value={item.todo}
             />
           ) : (
-            <div
-              className={item.isCompleted ? 'task-list complete' : 'task-list'}
-              onClick={() => completeTask(index)}
-            >
-              {item.todo}
+            <div>
+              <div
+                className={
+                  item.isCompleted ? 'task-list complete' : 'task-list'
+                }
+                onClick={() => completeTodo(index)}
+              >
+                {item.todo}
+              </div>
+              <div className="menu">
+                <Tool value="Edit" onClick={() => onEdit(index)} />
+                <Tool value="Delete" onClick={() => deleteTodo(index)} />
+              </div>
             </div>
           )}
-          <div className="menu">
-            <Tool value="Edit" onClick={onEdit} index={index} />
-            <Tool value="Delete" onClick={deleteTodo} index={index} />
-          </div>
         </li>
       ))}
     </ul>
+  ) : (
+    <div className="no-results">No Results Found</div>
   );
+};
+
+TodoList.propTypes = {
+  todoList: Proptypes.array,
+  option: Proptypes.string,
+  completeTodo: Proptypes.func,
+  deleteTodo: Proptypes.func,
+  onEdit: Proptypes.func,
+  updateTodo: Proptypes.func,
+  searchParameter: Proptypes.string
 };
 
 export default TodoList;

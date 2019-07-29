@@ -8,5 +8,11 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
-  color: #e54547;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: auto;
+  }
 }

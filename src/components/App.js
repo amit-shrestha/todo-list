@@ -1,67 +1,131 @@
 import React from 'react';
 
-import '../assets/css/App.css';
+import '../assets/css';
 import TodoListWrapper from './TodoListWrapper';
-
+import * as Filter from '../Constants/Filter';
+/**
+ *
+ *
+ * @class App
+ * @augments {React.Component}
+ *
+ */
 class App extends React.Component {
+  /**
+   * @memberof App
+   */
   constructor() {
     super();
-    const ALL = 'All';
     this.state = {
       todos: [],
-      option: ALL
+      searchParameter: '',
+      option: Filter.ALL
     };
   }
 
+  /**
+   * @memberof Input
+   * @param {string} task
+   */
   addTodo = task => {
     if (this.isTaskValid(task)) {
       this.setState({
         todos: [
-          { todo: task, isCompleted: false, isEditing: false },
+          {
+            todo: task,
+            isCompleted: false,
+            isEditing: false
+          },
           ...this.state.todos
         ]
       });
     }
   };
 
+  /**
+   * @memberof Input
+   * @param {number} index
+   */
   completeTodo = index => {
-    let tasks = this.state.todos.map(item => {
-      return { ...item };
+    const todos = this.state.todos.map((currentTodo, itemIndex) => {
+      if (itemIndex !== index) {
+        return currentTodo;
+      }
+
+      return {
+        ...currentTodo,
+        isCompleted: !currentTodo.isCompleted
+      };
     });
-    tasks[index].isCompleted = !this.state.todos[index].isCompleted;
-    this.setState({ todos: tasks });
+
+    this.setState({ todos });
   };
 
+  /**
+   * @memberof Input
+   * @param {string} option
+   */
   changeOption = option => {
     this.setState({ option: option });
   };
 
+  /**
+   * @memberof Input
+   * @param {number} index
+   */
   deleteTodo = index => {
-    let tasksToDelete = this.state.todos.filter(
+    const tasksToDelete = this.state.todos.filter(
       (item, itemIndex) => itemIndex !== index
     );
+
     this.setState({ todos: tasksToDelete });
   };
 
+  /**
+   * @memberof Input
+   * @param {number} index
+   */
   enableEdit = index => {
-    let tasks = this.state.todos.map(item => {
-      return { ...item };
-    });
-    tasks[index].isEditing = !this.state.todos[index].isEditing;
-    this.setState({ todos: tasks });
-  };
+    const todos = this.state.todos.map((currentTodo, itemIndex) => {
+      if (itemIndex !== index) {
+        return currentTodo;
+      }
 
+      return {
+        ...currentTodo,
+        isEditing: !currentTodo.isEditing
+      };
+    });
+
+    this.setState({ todos });
+  };
+  /**
+   * @memberof Input
+   * @param {number} index
+   * @param {string} task
+   */
   updateTodo = (index, task) => {
-    let tasks = this.state.todos.map(item => {
-      return { ...item };
-    });
-    tasks[index].isEditing = !this.state.todos[index].isEditing;
     if (this.isTaskValid(task)) {
-      tasks[index].todo = task;
+      const todos = this.state.todos.map((currentTodo, itemIndex) => {
+        if (itemIndex !== index) {
+          return currentTodo;
+        }
+
+        return {
+          ...currentTodo,
+          isEditing: !currentTodo.isEditing,
+          todo: task
+        };
+      });
+
+      this.setState({ todos });
     }
-    this.setState({ todos: tasks });
   };
 
+  /**
+   * @memberof Input
+   * @param {string} task
+   */
   isTaskValid = task => {
     if (task && task !== null && [...task].some(letter => letter !== ' ')) {
       return true;
@@ -70,20 +134,57 @@ class App extends React.Component {
     return false;
   };
 
+  /**
+   * @memberof Input
+   * @param {string} value
+   */
+  search = value => {
+    this.setState({ searchParameter: value });
+  };
+
+  /**
+   *
+   *
+   * @memberof App
+   */
+  componentDidMount() {
+    const storedTodos = window.localStorage.getItem('storeTodos');
+    const storedTodosArray = storedTodos ? JSON.parse(storedTodos) : [];
+
+    this.setState({ todos: storedTodosArray });
+  }
+
+  /**
+   *
+   *
+   * @memberof App
+   */
+  componentDidUpdate() {
+    window.localStorage.setItem('storeTodos', JSON.stringify(this.state.todos));
+  }
+
+  /**
+   *
+   *
+   * @returns
+   * @memberof App
+   */
   render() {
     return (
       <div className="wrapper">
         <TodoListWrapper
-          onClick={this.changeOption}
+          onButtonClick={this.changeOption}
           activeOption={this.state.option}
-          onAdd={this.addTodo}
+          addTodo={this.addTodo}
           edit={false}
           todoList={this.state.todos}
-          completeTask={this.completeTodo}
+          completeTodo={this.completeTodo}
           option={this.state.option}
           deleteTodo={this.deleteTodo}
           onEdit={this.enableEdit}
           updateTodo={this.updateTodo}
+          onChange={this.search}
+          searchParameter={this.state.searchParameter}
         />
       </div>
     );

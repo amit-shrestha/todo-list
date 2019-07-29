@@ -1,27 +1,69 @@
 .input-form {
   width: 100%;
   margin: 10px auto;
-  border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .input-form input {
-  width: 100%;
+  width: 85%;
   line-height: 40px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  padding-left: 2px;
+}
+
+.input-form button,
+.edit-form button {
+  float: right;
+  font-size: 15px;
+  line-height: 40px;
+  width: 10%;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #cfd8dc;
+}
+
+.input-form button:hover {
+  background-color: #b0bec5;
+  color: white;
 }
 
 .edit-form {
-  width: 70%;
-  border: 1px solid black;
-  display: inline-block;
-  line-height: 40px;
-  margin-left: 2px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .edit-form input {
-  width: 100%;
+  width: 85%;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.edit-form button {
+  line-height: 50px;
+  width: 10%;
+}
+
+.edit-form button:hover {
+  background-color: #b0bec5;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .input-form button,
+  .edit-form button {
+    width: 50px;
+  }
+
+  .input-form input,
+  .edit-form input {
+    width: 75%;
+    font-size: 15px;
+  }
 }

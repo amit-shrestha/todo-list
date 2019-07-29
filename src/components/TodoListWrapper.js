@@ -1,41 +1,77 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 import Input from './Input';
 import TodoList from './TodoList';
 import Button from './Button';
-import '../assets/css/TodoListWrapper.css';
+import Search from './Search';
 
+/**
+ *
+ * @param {*} props
+ */
 const TodoListWrapper = props => {
   const {
-    onClick,
+    onButtonClick,
     activeOption,
-    onAdd,
+    addTodo,
     edit,
     todoList,
-    completeTask,
+    completeTodo,
     option,
     deleteTodo,
     onEdit,
-    updateTodo
+    updateTodo,
+    onChange,
+    searchParameter
   } = props;
 
   return (
     <div className="container">
       <h1>TO-DO LIST</h1>
-      <Button value="All" onClick={onClick} activeOption={activeOption} />
-      <Button value="Remaining" onClick={onClick} activeOption={activeOption} />
-      <Button value="Completed" onClick={onClick} activeOption={activeOption} />
-      <Input onAdd={onAdd} edit={edit} />
+      <Button
+        value="All"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
+      <Button
+        value="Remaining"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
+      <Button
+        value="Completed"
+        onButtonClick={onButtonClick}
+        activeOption={activeOption}
+      />
+      <Input onAdd={addTodo} edit={edit} />
+      <Search onChange={onChange} />
       <TodoList
         todoList={todoList}
-        completeTask={completeTask}
+        completeTodo={completeTodo}
         option={option}
         deleteTodo={deleteTodo}
         onEdit={onEdit}
         updateTodo={updateTodo}
+        searchParameter={searchParameter}
       />
     </div>
   );
+};
+
+TodoListWrapper.propTypes = {
+  onButtonClick: Proptypes.func,
+  activeOption: Proptypes.string,
+  addTodo: Proptypes.func,
+  edit: Proptypes.bool,
+  todoList: Proptypes.array,
+  completeTodo: Proptypes.func,
+  option: Proptypes.string,
+  deleteTodo: Proptypes.func,
+  onEdit: Proptypes.func,
+  updateTodo: Proptypes.func,
+  onChange: Proptypes.func,
+  searchParameter: Proptypes.string
 };
 
 export default TodoListWrapper;
